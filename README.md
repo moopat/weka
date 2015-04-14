@@ -1,6 +1,7 @@
 #weka-android
 
-The purpose of this fork is to create an Android-compatible version of weka. Development is done on the weka-android branch.
+The purpose of this fork is to create an Android-compatible version of weka.
+Development is done on the [weka-android branch](https://github.com/moopat/weka/tree/weka-android).
 
 weka (mirror) 
 =============
