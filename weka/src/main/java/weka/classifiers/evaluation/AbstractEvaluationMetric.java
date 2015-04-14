@@ -21,12 +21,11 @@
 
 package weka.classifiers.evaluation;
 
+import weka.core.FeatureStrippedException;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-
-import weka.gui.beans.PluginManager;
 
 /**
  * Abstract base class for pluggable classification/regression evaluation
@@ -48,6 +47,9 @@ public abstract class AbstractEvaluationMetric implements Serializable {
    */
   public static ArrayList<AbstractEvaluationMetric> getPluginMetrics() {
     ArrayList<AbstractEvaluationMetric> pluginMetricsList = null;
+    throw new FeatureStrippedException(); // Preventable by just returning null.
+
+      /*
     Set<String> pluginMetrics =
       PluginManager.getPluginNamesOfType(AbstractEvaluationMetric.class
         .getName());
@@ -67,7 +69,7 @@ public abstract class AbstractEvaluationMetric implements Serializable {
         }
       }
     }
-    return pluginMetricsList;
+    return pluginMetricsList;*/
   }
 
   /**

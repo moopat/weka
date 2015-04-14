@@ -837,7 +837,7 @@ public class SGD extends RandomizableClassifier implements
   /**
    * Computes the distribution for a given instance
    * 
-   * @param instance the instance for which distribution is computed
+   * @param inst the instance for which distribution is computed
    * @return the distribution
    * @throws Exception if the distribution can't be computed successfully
    */

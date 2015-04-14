@@ -755,7 +755,7 @@ public class HoeffdingTree extends AbstractClassifier implements
   /**
    * Updates the classifier with the given instance.
    * 
-   * @param instance the new training instance to include in the model
+   * @param inst the new training instance to include in the model
    * @exception Exception if the instance could not be incorporated in the
    *              model.
    */
@@ -797,7 +797,7 @@ public class HoeffdingTree extends AbstractClassifier implements
   /**
    * Returns class probabilities for an instance.
    * 
-   * @param instance the instance to compute the distribution for
+   * @param inst the instance to compute the distribution for
    * @return the class probabilities
    * @throws Exception if distribution can't be computed successfully
    */

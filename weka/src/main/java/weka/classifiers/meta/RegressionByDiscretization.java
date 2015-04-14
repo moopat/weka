@@ -362,7 +362,7 @@ extends SingleClassifierEnhancer implements IntervalEstimator, ConditionalDensit
   /**
    * Get density estimator for given instance.
    * 
-   * @param inst the instance
+   * @param instance the instance
    * @return the univariate density estimator
    * @exception Exception if the estimator can't be computed
    */
@@ -414,7 +414,7 @@ extends SingleClassifierEnhancer implements IntervalEstimator, ConditionalDensit
    * boundary of the corresponding prediction interval and the second
    * element the upper boundary.
    *
-   * @param inst the instance to make the prediction for.
+   * @param instance the instance to make the prediction for.
    * @param confidenceLevel the percentage of cases that the interval should cover.
    * @return an array of prediction intervals
    * @exception Exception if the intervals can't be computed
@@ -431,8 +431,8 @@ extends SingleClassifierEnhancer implements IntervalEstimator, ConditionalDensit
   /**
    * Returns natural logarithm of density estimate for given value based on given instance.
    *
-   * @param inst the instance to make the prediction for.
-   * @param the value to make the prediction for.
+   * @param instance the instance to make the prediction for.
+   * @param value to make the prediction for.
    * @return the natural logarithm of the density estimate
    * @exception Exception if the intervals can't be computed
    */
@@ -746,7 +746,7 @@ extends SingleClassifierEnhancer implements IntervalEstimator, ConditionalDensit
   /**
    * Set the estimator
    *
-   * @param newEstimator the estimator to use
+   * @param estimator the estimator to use
    */
   public void setEstimator(UnivariateDensityEstimator estimator) {
 

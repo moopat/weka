@@ -260,7 +260,7 @@ public class RuleSetModel extends PMMLClassifier {
      * @param instance a vector containing the incoming independent and
      * derived independent variables
      * @param classAtt the class attribute
-     * @param rsm the rule selection method (ignored by simple rules)
+     * @param instance the rule selection method (ignored by simple rules)
      * @return a probability distribution over the class labels or
      * the predicted value (in element zero of the array if the class is numeric)
      * @throws Exception if something goes wrong

@@ -888,7 +888,7 @@ public class IterativeClassifierOptimizer extends RandomizableClassifier
    * Get classifier for string.
    * 
    * @return a classifier
-   * @throws exception if a problem occurs
+   * @throws Exception if a problem occurs
    */
   protected IterativeClassifier getIterativeClassifier(String name,
     String[] options) throws Exception {

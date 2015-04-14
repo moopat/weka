@@ -21,33 +21,11 @@
 
 package weka.classifiers.pmml.producer;
 
-import java.io.StringWriter;
-import java.math.BigInteger;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-
 import weka.core.Attribute;
 import weka.core.Instances;
-import weka.core.pmml.jaxbbindings.DATATYPE;
-import weka.core.pmml.jaxbbindings.DerivedField;
-import weka.core.pmml.jaxbbindings.FIELDUSAGETYPE;
-import weka.core.pmml.jaxbbindings.LocalTransformations;
-import weka.core.pmml.jaxbbindings.MININGFUNCTION;
-import weka.core.pmml.jaxbbindings.MISSINGVALUETREATMENTMETHOD;
-import weka.core.pmml.jaxbbindings.MiningField;
-import weka.core.pmml.jaxbbindings.MiningSchema;
-import weka.core.pmml.jaxbbindings.NormDiscrete;
-import weka.core.pmml.jaxbbindings.NumericPredictor;
-import weka.core.pmml.jaxbbindings.OPTYPE;
-import weka.core.pmml.jaxbbindings.Output;
-import weka.core.pmml.jaxbbindings.OutputField;
-import weka.core.pmml.jaxbbindings.PMML;
-import weka.core.pmml.jaxbbindings.REGRESSIONNORMALIZATIONMETHOD;
-import weka.core.pmml.jaxbbindings.RegressionModel;
-import weka.core.pmml.jaxbbindings.RegressionTable;
-import weka.core.pmml.jaxbbindings.TransformationDictionary;
+import weka.core.pmml.jaxbbindings.*;
+
+import java.math.BigInteger;
 
 /**
  * Helper class for producing PMML for a Logistic classifier. Not designed to be
@@ -173,6 +151,7 @@ public class LogisticProducerHelper extends AbstractPMMLProducerHelper {
 
     pmml.addAssociationModelOrBaselineModelOrClusteringModes(model);
 
+      /*
     try {
       StringWriter sw = new StringWriter();
       JAXBContext jc = JAXBContext.newInstance(PMML.class);
@@ -183,6 +162,8 @@ public class LogisticProducerHelper extends AbstractPMMLProducerHelper {
     } catch (JAXBException e) {
       e.printStackTrace();
     }
+    */
+      //weka-android-stripped
     return "";
   }
 }

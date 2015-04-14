@@ -479,7 +479,7 @@ public class KStarNominalAttribute implements KStarConstants, RevisionHandler {
    * and "average" transformation probabilities when using the specified stop
    * parameter.
    * 
-   * @param testValue the value of the test instance
+   * @param testvalue the value of the test instance
    * @param stop the stop parameter
    * @param params a wrapper of the parameters to be computed: "sphere" the
    *          sphere size "avgprob" the average transformation probability
