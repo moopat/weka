@@ -21,29 +21,17 @@
 
 package weka.clusterers;
 
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.MethodDescriptor;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.Serializable;
-import java.lang.reflect.Method;
-import java.util.Enumeration;
-import java.util.Random;
-import java.util.Vector;
-
-import weka.core.Drawable;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.Option;
-import weka.core.OptionHandler;
-import weka.core.Range;
-import weka.core.RevisionHandler;
-import weka.core.RevisionUtils;
-import weka.core.Utils;
+import weka.core.*;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Random;
+import java.util.Vector;
 
 /**
  * Class for evaluating clustering models.
@@ -1192,24 +1180,7 @@ public class ClusterEvaluation implements Serializable, RevisionHandler {
    * @throws Exception if there is a problem reflecting on the clusterer
    */
   protected static String getGlobalInfo(Clusterer clusterer) throws Exception {
-    BeanInfo bi = Introspector.getBeanInfo(clusterer.getClass());
-    MethodDescriptor[] methods;
-    methods = bi.getMethodDescriptors();
-    Object[] args = {};
-    String result = "\nSynopsis for " + clusterer.getClass().getName()
-      + ":\n\n";
-
-    for (MethodDescriptor method : methods) {
-      String name = method.getDisplayName();
-      Method meth = method.getMethod();
-      if (name.equals("globalInfo")) {
-        String globalInfo = (String) (meth.invoke(clusterer, args));
-        result += globalInfo;
-        break;
-      }
-    }
-
-    return result;
+    throw new FeatureStrippedException();
   }
 
   /**
