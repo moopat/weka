@@ -21,25 +21,14 @@
 
 package weka.attributeSelection;
 
-import java.beans.BeanInfo;
-import java.beans.IntrospectionException;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
-import java.io.Serializable;
-import java.lang.reflect.Method;
-import java.util.Enumeration;
-import java.util.Random;
-
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.Option;
-import weka.core.OptionHandler;
-import weka.core.RevisionHandler;
-import weka.core.RevisionUtils;
-import weka.core.Utils;
+import weka.core.*;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
+
+import java.io.Serializable;
+import java.util.Enumeration;
+import java.util.Random;
 
 /**
  * Attribute selection class. Takes the name of a search class and an evaluation
@@ -612,6 +601,9 @@ public class AttributeSelection implements Serializable, RevisionHandler {
     // try and determine if the search method uses an attribute transformer---
     // this is a bit of a hack to make things work properly with RankSearch
     // using PrincipalComponents as its attribute ranker
+
+    throw new FeatureStrippedException();
+    /*
     try {
       BeanInfo bi = Introspector.getBeanInfo(m_searchMethod.getClass());
       PropertyDescriptor properties[];
@@ -636,6 +628,7 @@ public class AttributeSelection implements Serializable, RevisionHandler {
     } catch (IntrospectionException ex) {
       System.err.println("AttributeSelection: Couldn't " + "introspect");
     }
+
 
     // Do any postprocessing that a attribute selection method might require
     attributeSet = m_ASEvaluator.postProcess(attributeSet);
@@ -770,6 +763,7 @@ public class AttributeSelection implements Serializable, RevisionHandler {
 
     // Save space
     m_trainInstances = new Instances(m_trainInstances, 0);
+    */
   }
 
   /**

@@ -90,7 +90,7 @@ import weka.experiment.ResultMatrix;
 import weka.experiment.ResultMatrixPlainText;
 import weka.experiment.SplitEvaluator;
 import weka.gui.GenericObjectEditor;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.PropertyPanel;
 import weka.gui.ResultHistoryPanel;
 import weka.gui.SaveBuffer;

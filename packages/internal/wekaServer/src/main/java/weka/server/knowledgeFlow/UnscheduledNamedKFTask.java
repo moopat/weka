@@ -42,7 +42,7 @@ import java.util.zip.GZIPOutputStream;
 import weka.core.Environment;
 import weka.core.LogHandler;
 import weka.experiment.TaskStatusInfo;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.beans.BeanCommon;
 import weka.gui.beans.BeanConnection;
 import weka.gui.beans.BeanInstance;

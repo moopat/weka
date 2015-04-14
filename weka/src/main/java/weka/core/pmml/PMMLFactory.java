@@ -51,7 +51,7 @@ import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Utils;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * This class is a factory class for reading/writing PMML models

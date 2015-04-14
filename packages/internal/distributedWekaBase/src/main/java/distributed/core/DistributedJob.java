@@ -32,7 +32,7 @@ import java.util.List;
 import weka.core.*;
 import weka.distributed.CSVToARFFHeaderMapTask;
 import weka.distributed.DistributedWekaException;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * Abstract base class for all distributed jobs.

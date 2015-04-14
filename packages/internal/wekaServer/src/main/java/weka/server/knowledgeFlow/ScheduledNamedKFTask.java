@@ -27,7 +27,7 @@ import java.util.Map;
 
 import weka.core.LogHandler;
 import weka.experiment.TaskStatusInfo;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.server.NamedTask;
 import weka.server.Schedule;
 import weka.server.Scheduled;

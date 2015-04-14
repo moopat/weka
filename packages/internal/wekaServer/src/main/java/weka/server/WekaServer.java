@@ -78,7 +78,7 @@ import weka.core.LogHandler;
 import weka.core.WekaPackageManager;
 import weka.experiment.Task;
 import weka.experiment.TaskStatusInfo;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.server.WekaTaskMap.WekaTaskEntry;
 import weka.server.logging.ServerLogger;
 

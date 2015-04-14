@@ -6,7 +6,7 @@ import javax.swing.JFileChooser
 import org.pentaho.dm.kf.KFGroovyScript
 import org.pentaho.dm.kf.GroovyHelper
 import weka.core.*
-import weka.gui.Logger
+import weka.core.Logger
 import weka.gui.beans.*
 // add further imports here if necessary
 

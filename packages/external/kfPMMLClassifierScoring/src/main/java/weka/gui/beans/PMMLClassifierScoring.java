@@ -25,7 +25,7 @@ import weka.classifiers.pmml.consumer.PMMLClassifier;
 import weka.core.Environment;
 import weka.core.EnvironmentHandler;
 import weka.core.Instances;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.core.pmml.PMMLFactory;
 import weka.core.pmml.PMMLModel;
 

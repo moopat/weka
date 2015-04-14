@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.server.WekaServer;
 import weka.server.WekaTaskMap;
 

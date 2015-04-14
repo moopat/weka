@@ -369,7 +369,7 @@ public class GroovyComponentCustomizer extends JPanel
     temp.append("import org.pentaho.dm.kf.KFGroovyScript\n");
     temp.append("import org.pentaho.dm.kf.GroovyHelper\n");
     temp.append("import weka.core.*\n");
-    temp.append("import weka.gui.Logger\n");
+    temp.append("import weka.core.Logger\n");
     temp.append("import weka.gui.beans.*\n");
     temp.append("// add further imports here if necessary\n\n");
     temp.append("class MyScript\n");

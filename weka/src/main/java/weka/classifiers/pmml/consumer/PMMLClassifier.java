@@ -33,7 +33,7 @@ import weka.core.Instances;
 import weka.core.pmml.MappingInfo;
 import weka.core.pmml.MiningSchema;
 import weka.core.pmml.PMMLModel;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * Abstract base class for all PMML classifiers.

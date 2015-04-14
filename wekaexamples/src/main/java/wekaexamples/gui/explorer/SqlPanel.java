@@ -23,7 +23,7 @@ package wekaexamples.gui.explorer;
 
 import weka.core.Instances;
 import weka.experiment.InstanceQuery;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.SysErrLog;
 import weka.gui.explorer.Explorer;
 import weka.gui.explorer.Explorer.ExplorerPanel;

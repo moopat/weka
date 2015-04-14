@@ -39,7 +39,7 @@ import weka.core.pmml.MiningSchema;
 import weka.core.pmml.TargetMetaInfo;
 import weka.core.pmml.VectorDictionary;
 import weka.core.pmml.VectorInstance;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * Implements a PMML SupportVectorMachineModel

@@ -26,7 +26,7 @@ import weka.core.OptionHandler;
 import weka.core.Utils;
 import weka.datagenerators.DataGenerator;
 import weka.gui.GenericObjectEditor;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.PropertyPanel;
 import weka.gui.SysErrLog;
 import weka.gui.explorer.Explorer;

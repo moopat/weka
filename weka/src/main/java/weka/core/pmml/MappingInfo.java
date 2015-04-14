@@ -28,7 +28,7 @@ import weka.core.Attribute;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.Utils;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * Class that maintains the mapping between incoming data set structure and that

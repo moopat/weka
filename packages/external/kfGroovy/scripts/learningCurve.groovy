@@ -5,7 +5,7 @@ import java.util.Enumeration
 import org.pentaho.dm.kf.KFGroovyScript
 import org.pentaho.dm.kf.GroovyHelper
 import weka.core.*
-import weka.gui.Logger
+import weka.core.Logger
 import weka.gui.beans.*
 import weka.classifiers.bayes.NaiveBayes
 import weka.classifiers.functions.Logistic

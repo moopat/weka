@@ -34,7 +34,7 @@ import javax.swing.JPanel;
 
 import weka.core.Environment;
 import weka.core.EnvironmentHandler;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.beans.BatchClassifierEvent;
 import weka.gui.beans.BatchClassifierListener;
 import weka.gui.beans.BatchClustererEvent;

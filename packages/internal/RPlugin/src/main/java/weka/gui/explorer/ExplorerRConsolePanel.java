@@ -29,7 +29,7 @@ import javax.swing.JPanel;
 
 import weka.core.Instances;
 import weka.core.JRILoader;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.explorer.Explorer.ExplorerPanel;
 import weka.gui.explorer.Explorer.LogHandler;
 

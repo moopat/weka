@@ -33,7 +33,7 @@ import weka.core.Environment;
 import weka.core.EnvironmentHandler;
 import weka.core.Utils;
 import weka.distributed.hadoop.HadoopJob;
-import weka.gui.Logger;
+import weka.core.Logger;
 import distributed.core.DistributedJob;
 import distributed.core.DistributedJobConfig;
 

@@ -46,7 +46,7 @@ import weka.core.RLoggerAPI;
 import weka.core.RSession;
 import weka.core.RSessionException;
 import weka.core.RUtils;
-import weka.gui.Logger;
+import weka.core.Logger;
 
 // JRI dynamically linked library
 // needs -Djava.library.path=/Library/Frameworks/R.framework/Resources/library/rJava/jri/
@@ -671,7 +671,7 @@ public class RScriptExecutor extends JPanel implements BeanCommon, Visible,
   /**
    * Set a logger
    * 
-   * @param logger a <code>weka.gui.Logger</code> value
+   * @param logger a <code>weka.core.Logger</code> value
    */
   @Override
   public void setLog(Logger logger) {

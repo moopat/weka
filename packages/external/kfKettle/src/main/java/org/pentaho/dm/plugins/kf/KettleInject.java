@@ -25,13 +25,10 @@ package org.pentaho.dm.plugins.kf;
 import java.beans.EventSetDescriptor;
 import java.util.Vector;
 
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.beans.AbstractDataSource;
 import weka.gui.beans.BeanCommon;
 import weka.gui.beans.BeanInstance;
-import weka.gui.beans.BeanVisual;
 import weka.gui.beans.DataSetEvent;
 import weka.gui.beans.DataSourceListener;
 import weka.gui.beans.EventConstraints;

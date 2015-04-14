@@ -82,7 +82,7 @@ import weka.core.converters.IncrementalConverter;
 import weka.core.converters.Loader;
 import weka.core.converters.URLSourcedLoader;
 import weka.experiment.TaskStatusInfo;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.TaskLogger;
 import weka.gui.visualize.PlotData2D;
 import weka.server.ExecuteTaskServlet;

@@ -84,7 +84,7 @@ import weka.core.RLoggerAPI;
 import weka.core.RSession;
 import weka.core.RUtils;
 import weka.core.Utils;
-import weka.gui.Logger;
+import weka.core.Logger;
 import weka.gui.ResultHistoryPanel;
 import weka.gui.visualize.VisualizeUtils;
 

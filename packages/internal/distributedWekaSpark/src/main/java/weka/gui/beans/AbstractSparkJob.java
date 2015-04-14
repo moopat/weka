@@ -21,7 +21,6 @@
 
 package weka.gui.beans;
 
-import java.awt.*;
 import java.beans.EventSetDescriptor;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,7 +40,7 @@ import weka.distributed.DistributedWekaException;
 import weka.distributed.spark.CachingStrategy;
 import weka.distributed.spark.Dataset;
 import weka.distributed.spark.SparkJob;
-import weka.gui.Logger;
+import weka.core.Logger;
 import distributed.core.DistributedJob;
 import distributed.core.DistributedJobConfig;
 

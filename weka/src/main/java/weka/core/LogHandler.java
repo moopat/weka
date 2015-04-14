@@ -20,8 +20,6 @@
 
 package weka.core;
 
-import weka.gui.Logger;
-
 /**
  * Interface to something that can output messages to a log
  * 

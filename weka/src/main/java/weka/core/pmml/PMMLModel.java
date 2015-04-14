@@ -23,7 +23,7 @@ package weka.core.pmml;
 
 import org.w3c.dom.Document;
 
-import weka.gui.Logger;
+import weka.core.Logger;
 
 /**
  * Interface for all PMML models
