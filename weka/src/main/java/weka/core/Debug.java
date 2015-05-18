@@ -25,8 +25,6 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.io.StringWriter;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.FileHandler;
@@ -84,7 +82,6 @@ public class Debug
    *
    * @author FracPete (fracpete at waikato dot ac dot nz)
    * @version $Revision$ 
-   * @see ThreadMXBean#isThreadCpuTimeEnabled()
    */
   public static class Clock 
     implements Serializable, RevisionHandler {
@@ -130,7 +127,7 @@ public class Debug
     protected boolean m_UseCpuTime;
     
     /** the thread monitor, if the system can measure the CPU time */
-    protected transient ThreadMXBean m_ThreadMonitor;
+    //protected transient ThreadMXBean m_ThreadMonitor;
     
     /**
      * automatically starts the clock with FORMAT_SECONDS format and CPU
@@ -187,11 +184,7 @@ public class Debug
      * initializes the clocking, ensure to get the correct thread ID.
      */
     protected void init() {
-      m_ThreadMonitor = null;
-      m_ThreadMonitor = getThreadMonitor();
-
-      // can we measure cpu time?
-      m_CanMeasureCpuTime = m_ThreadMonitor.isThreadCpuTimeSupported();
+      m_CanMeasureCpuTime = false;
     }
     
     /**
@@ -202,7 +195,6 @@ public class Debug
      * @return		true if the more accurate CPU time of the thread is 
      * 			used and the use of CPU time hasn't been disabled
      * @see System#currentTimeMillis()
-     * @see ThreadMXBean#isThreadCpuTimeEnabled()
      * @see #getUseCpuTime()
      */
     public boolean isCpuTime() {
@@ -236,39 +228,14 @@ public class Debug
     public boolean getUseCpuTime() {
       return m_UseCpuTime;
     }
-    
-    /**
-     * Returns a new thread monitor if the current one is null (e.g., due to
-     * serialization) or the currently set one. The thread ID is also updated
-     * if necessary.
-     * 
-     * @return		the thread monitor to use
-     */
-    protected ThreadMXBean getThreadMonitor() {
-      if (m_ThreadMonitor == null) {
-	m_ThreadMonitor = ManagementFactory.getThreadMXBean();
-	if (m_CanMeasureCpuTime && !m_ThreadMonitor.isThreadCpuTimeEnabled())
-	  m_ThreadMonitor.setThreadCpuTimeEnabled(true);
-	m_ThreadID = Thread.currentThread().getId();
-      }
-      
-      return m_ThreadMonitor;
-    }
-    
+
     /**
      * returns the current time in msec
      * 
      * @return		the current time
      */
     protected long getCurrentTime() {
-      long	result;
-      
-      if (isCpuTime())
-	result = getThreadMonitor().getThreadUserTime(m_ThreadID) / 1000000;
-      else
-	result = System.currentTimeMillis();
-      
-      return result;
+      return System.currentTimeMillis();
     }
     
     /**

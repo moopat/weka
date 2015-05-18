@@ -75,7 +75,7 @@ public class InstanceComparator
    * 
    * @param includeClass	whether to include the class in the comparison
    * @param range		the attribute range string
-   * @param inverted		whether to invert the matching sense of the att range
+   * @param invert		whether to invert the matching sense of the att range
    */
   public InstanceComparator(boolean includeClass, String range, boolean invert) {
     super();
@@ -126,7 +126,7 @@ public class InstanceComparator
   /**
    * Sets whether to invert the matching sense of the attribute range.
    * 
-   * @param invert		true if to invert the matching sense
+   * @param value		true if to invert the matching sense
    */
   public void setInvert(boolean value) {
     m_Range.setInvert(value);

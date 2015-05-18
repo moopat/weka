@@ -34,12 +34,6 @@ import org.pentaho.packageManagement.*;
 import org.pentaho.packageManagement.Package;
 
 import weka.core.converters.ConverterUtils;
-import weka.gui.GenericObjectEditor;
-import weka.gui.GenericPropertiesCreator;
-import weka.gui.beans.BeansProperties;
-import weka.gui.beans.KnowledgeFlowApp;
-import weka.gui.beans.PluginManager;
-import weka.gui.explorer.ExplorerDefaults;
 
 /**
  * Class providing package management and manipulation routines. Also provides a
@@ -309,7 +303,7 @@ public class WekaPackageManager {
           for (String s : parts) {
             disable.add(s.trim());
           }
-          PluginManager.addToDisabledList(disable);
+          //PluginManager.addToDisabledList(disable);
         }
       } catch (FileNotFoundException e) {
         e.printStackTrace();
@@ -407,84 +401,12 @@ public class WekaPackageManager {
   }
 
   /**
-   * Remove any ExplorerDefaults properties specified in the supplied package
-   * 
-   * @param installedPackageName the package specifying properties that should
-   *          be removed from ExplorerDefaults
-   */
-  public static void removeExplorerProps(String installedPackageName) {
-    try {
-      Properties expProps = new Properties();
-      String explorerProps =
-        getPackageHome().getAbsolutePath() + File.separator
-          + installedPackageName + File.separator + "Explorer.props";
-      BufferedInputStream bi =
-        new BufferedInputStream(new FileInputStream(explorerProps));
-      expProps.load(bi);
-      bi.close();
-      bi = null;
-      Set<Object> keys = expProps.keySet();
-      Iterator<Object> keysI = keys.iterator();
-      while (keysI.hasNext()) {
-        String key = (String) keysI.next();
-        if (!key.endsWith("Policy")) {
-          // See if this key is in the Explorer props
-          String existingVal = ExplorerDefaults.get(key, "");
-          String toRemove = expProps.getProperty(key);
-          if (existingVal.length() > 0) {
-            // cover the case when the value to remove is at the start
-            // or middle of a list
-            existingVal = existingVal.replace(toRemove + ",", "");
-
-            // the case when it's at the end
-            existingVal = existingVal.replace("," + toRemove, "");
-            ExplorerDefaults.set(key, existingVal);
-          }
-        }
-      }
-    } catch (Exception ex) {
-    }
-  }
-
-  /**
    * Process a package's GenericPropertiesCreator.props file
    * 
    * @param propsFile the props file to process
    */
   protected static void processGenericPropertiesCreatorProps(File propsFile) {
-    try {
-      Properties expProps = new Properties();
-      BufferedInputStream bi =
-        new BufferedInputStream(new FileInputStream(propsFile));
-      expProps.load(bi);
-      bi.close();
-      bi = null;
-      Properties GPCInputProps =
-        GenericPropertiesCreator.getGlobalInputProperties();
-
-      Set<Object> keys = expProps.keySet();
-      Iterator<Object> keysI = keys.iterator();
-      while (keysI.hasNext()) {
-        String key = (String) keysI.next();
-        // see if this key is in the GPC input props
-        String existingVal = GPCInputProps.getProperty(key, "");
-        if (existingVal.length() > 0) {
-          // append
-          String newVal = expProps.getProperty(key);
-          // only append if this value is not already there!!
-          if (existingVal.indexOf(newVal) < 0) {
-            newVal = existingVal + "," + newVal;
-            GPCInputProps.put(key, newVal);
-          }
-        } else {
-          // simply add this new key/value combo
-          String newVal = expProps.getProperty(key);
-          GPCInputProps.put(key, newVal);
-        }
-      }
-    } catch (Exception ex) {
-      // ignore
-    }
+    // throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
@@ -493,56 +415,7 @@ public class WekaPackageManager {
    * @param propsFile the properties file to process
    */
   protected static void processExplorerProps(File propsFile) {
-    try {
-      Properties expProps = new Properties();
-      BufferedInputStream bi =
-        new BufferedInputStream(new FileInputStream(propsFile));
-      expProps.load(bi);
-      bi.close();
-      bi = null;
-      Set<Object> keys = expProps.keySet();
-      Iterator<Object> keysI = keys.iterator();
-      while (keysI.hasNext()) {
-        String key = (String) keysI.next();
-        if (!key.endsWith("Policy")) {
-          // See if this key is in the Explorer props
-          String existingVal = ExplorerDefaults.get(key, "");
-          if (existingVal.length() > 0) {
-            // get the replacement policy (if any)
-            String replacePolicy = expProps.getProperty(key + "Policy");
-            if (replacePolicy != null && replacePolicy.length() > 0) {
-              if (replacePolicy.equalsIgnoreCase("replace")) {
-                String newVal = expProps.getProperty(key);
-                ExplorerDefaults.set(key, newVal);
-              } else {
-                // default to append
-                String newVal = expProps.getProperty(key);
-
-                // only append if this value is not already there!!
-                if (existingVal.indexOf(newVal) < 0) {
-                  newVal = existingVal + "," + newVal;
-                  ExplorerDefaults.set(key, newVal);
-                }
-              }
-            } else {
-              // default to append
-              String newVal = expProps.getProperty(key);
-              // only append if this value is not already there!!
-              if (existingVal.indexOf(newVal) < 0) {
-                newVal = existingVal + "," + newVal;
-                ExplorerDefaults.set(key, newVal);
-              }
-            }
-          } else {
-            // simply add this new key/value combo
-            String newVal = expProps.getProperty(key);
-            ExplorerDefaults.set(key, newVal);
-          }
-        }
-      }
-    } catch (Exception ex) {
-      // ignore
-    }
+    // throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
@@ -552,28 +425,7 @@ public class WekaPackageManager {
    * @param verbose true to output more info
    */
   protected static void processGUIEditorsProps(File propsFile, boolean verbose) {
-    GenericObjectEditor.registerEditors();
-    try {
-      Properties editorProps = new Properties();
-      BufferedInputStream bi =
-        new BufferedInputStream(new FileInputStream(propsFile));
-      editorProps.load(bi);
-      bi.close();
-      bi = null;
-
-      Enumeration<?> enm = editorProps.propertyNames();
-      while (enm.hasMoreElements()) {
-        String name = enm.nextElement().toString();
-        String value = editorProps.getProperty(name, "");
-        if (verbose) {
-          System.err.println("Registering " + name + " " + value);
-        }
-        GenericObjectEditor.registerEditor(name, value);
-      }
-
-    } catch (Exception ex) {
-      // ignore
-    }
+    // throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
@@ -582,10 +434,7 @@ public class WekaPackageManager {
    * @param propsFile the properties file to process
    */
   protected static void processPluginManagerProps(File propsFile) {
-    try {
-      PluginManager.addFromProperties(propsFile);
-    } catch (Exception ex) {
-    }
+    // throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
@@ -620,14 +469,7 @@ public class WekaPackageManager {
     // now any auxilliary files
     for (File content : contents) {
       if (content.isFile() && content.getPath().endsWith("Beans.props")) {
-        // KnowledgeFlow plugin -- add the Beans.props file to the list of
-        // bean plugin props
-
-        BeansProperties.addToPluginBeanProps(content);
-
-        if (!avoidTriggeringFullClassDiscovery) {
-          KnowledgeFlowApp.disposeSingleton();
-        }
+          throw new RuntimeException("This feature is not available in weka-android.");
       } else if (content.isFile()
         && content.getPath().endsWith("Explorer.props")
         && !avoidTriggeringFullClassDiscovery) {
@@ -1132,12 +974,7 @@ public class WekaPackageManager {
    * class discovery process.
    */
   public static void refreshGOEProperties() {
-    ClassDiscovery.clearClassCache();
-    GenericPropertiesCreator.regenerateGlobalOutputProperties();
-    GenericObjectEditor.determineClasses();
-    ConverterUtils.initialize();
-    KnowledgeFlowApp.disposeSingleton();
-    KnowledgeFlowApp.reInitialize();
+      throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
@@ -1934,13 +1771,7 @@ public class WekaPackageManager {
         File[] contents = packageToDel.listFiles();
         for (File content : contents) {
           if (content.isFile() && content.getPath().endsWith("Beans.props")) {
-            // KnowledgeFlow plugin -- remove this properties file from the list
-            // of
-            // bean plugin props
-
-            KnowledgeFlowApp.removeFromPluginBeanProps(content);
-            KnowledgeFlowApp.disposeSingleton();
-            break;
+              throw new RuntimeException("This feature is not available in weka-android.");
           }
         }
       }

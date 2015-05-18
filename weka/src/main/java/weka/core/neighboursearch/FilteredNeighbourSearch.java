@@ -104,7 +104,7 @@ public class FilteredNeighbourSearch extends NearestNeighbourSearch {
   /**
    * Sets the instances to build the filtering model from.
    * 
-   * @param insts the Instances object
+   * @param data the Instances object
    */
   public void setInstances(Instances data) {
 
@@ -197,7 +197,7 @@ public class FilteredNeighbourSearch extends NearestNeighbourSearch {
   /**
    * Sets the search method
    *
-   * @param searchMethod the search method with all options set.
+   * @param search the search method with all options set.
    */
   public void setSearchMethod(NearestNeighbourSearch search) {
     m_SearchMethod = search;

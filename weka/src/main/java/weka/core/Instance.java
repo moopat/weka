@@ -168,7 +168,7 @@ public interface Instance extends Copyable {
    * Checks if the headers of two instances are equivalent. If not, then returns
    * a message why they differ.
    * 
-   * @param dataset another instance
+   * @param inst another instance
    * @return null if the header of the given instance is equivalent to this
    *         instance's header, otherwise a message with details on why they
    *         differ
@@ -296,7 +296,7 @@ public interface Instance extends Copyable {
    *          nominal (or a string) then this is the new value's index as a
    *          double).
    * @throws UnassignedClassException if the class is not set
-   * @throws UnaddignedDatasetException if the instance doesn't have access to a
+   * @throws UnassignedDatasetException if the instance doesn't have access to a
    *           dataset
    */
   public void setClassValue(double value);

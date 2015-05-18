@@ -228,7 +228,7 @@ public class SparseArray extends Array implements Serializable {
   /**
    * Gets the value at index from the array.
    * 
-   * @param index the index of the value to get.
+   * @param arrIndex the index of the value to get.
    * @return the value at index in the array as as String.
    * @throws Exception if index is out of bounds.
    */

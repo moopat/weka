@@ -29,7 +29,6 @@ import java.util.StringTokenizer;
 import java.util.Vector;
 
 import weka.core.Capabilities.Capability;
-import weka.gui.GenericPropertiesCreator;
 
 /**
  * Locates all classes with certain capabilities. One should keep in mind, that
@@ -195,7 +194,6 @@ import weka.gui.GenericPropertiesCreator;
  * @version $Revision$
  * @see Capabilities
  * @see Capabilities.Capability
- * @see GenericPropertiesCreator
  */
 public class FindWithCapabilities implements OptionHandler,
                                              CapabilitiesHandler, 
@@ -378,7 +376,6 @@ public class FindWithCapabilities implements OptionHandler,
     CapabilitiesHandler handler;
     boolean initialized;
     StringTokenizer tok;
-    GenericPropertiesCreator creator;
     Properties props;
 
     m_Capabilities = new Capabilities(this);
@@ -562,14 +559,7 @@ public class FindWithCapabilities implements OptionHandler,
     }
 
     if (Utils.getFlag("generic", options)) {
-      creator = new GenericPropertiesCreator();
-      creator.execute(false);
-      props = creator.getInputProperties();
-      tok = new StringTokenizer(props.getProperty(m_Superclass), ",");
-      m_Packages = new Vector<String>();
-      while (tok.hasMoreTokens()) {
-        m_Packages.add(tok.nextToken());
-      }
+        throw new RuntimeException("This feature is not available in weka-android.");
     }
   }
 

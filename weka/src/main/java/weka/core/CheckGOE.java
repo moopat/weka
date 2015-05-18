@@ -21,11 +21,6 @@
 
 package weka.core;
 
-import weka.gui.ProgrammaticProperty;
-
-import java.beans.BeanInfo;
-import java.beans.Introspector;
-import java.beans.PropertyDescriptor;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -311,79 +306,7 @@ public class CheckGOE extends Check {
    * @return true if the test was passed
    */
   public boolean checkToolTips() {
-    boolean result;
-    Class<?> cls;
-    BeanInfo info;
-    PropertyDescriptor[] desc;
-    int i;
-    Vector<String> missing;
-    String suffix;
-
-    print("Tool tips...");
-
-    result = true;
-    suffix = "TipText";
-    cls = getObject().getClass();
-
-    // get properties
-    try {
-      info = Introspector.getBeanInfo(cls, Object.class);
-      desc = info.getPropertyDescriptors();
-    } catch (Exception e) {
-      e.printStackTrace();
-      desc = null;
-    }
-
-    // test for TipText methods
-    if (desc != null) {
-      missing = new Vector<String>();
-
-      for (i = 0; i < desc.length; i++) {
-        // skip property?
-        if (m_IgnoredProperties.contains(desc[i].getName())) {
-          continue;
-        }
-        if ((desc[i].getReadMethod() == null)
-          || (desc[i].getWriteMethod() == null)) {
-          continue;
-        }
-
-        OptionMetadata m = desc[i].getReadMethod().getAnnotation(OptionMetadata.class);
-        if (m == null) {
-          m = desc[i].getWriteMethod().getAnnotation(OptionMetadata.class);
-        }
-        if (m != null) {
-          continue;
-        }
-
-        // programatic properties don't need tip texts
-        ProgrammaticProperty p = desc[i].getReadMethod().getAnnotation(ProgrammaticProperty.class);
-        if (p == null) {
-          p = desc[i].getWriteMethod().getAnnotation(ProgrammaticProperty.class);
-        }
-        if (p != null) {
-          continue;
-        }
-
-        try {
-          cls.getMethod(desc[i].getName() + suffix, (Class[]) null);
-        } catch (Exception e) {
-          result = false;
-          missing.add(desc[i].getName() + suffix);
-        }
-      }
-
-      if (result) {
-        println("yes");
-      } else {
-        println("no (missing: " + missing + ")");
-      }
-
-    } else {
-      println("maybe");
-    }
-
-    return result;
+    throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**

@@ -32,16 +32,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Properties;
 import java.util.Vector;
 
-import weka.core.ClassDiscovery;
-import weka.core.Instance;
-import weka.core.Instances;
-import weka.core.RevisionHandler;
-import weka.core.RevisionUtils;
-import weka.gui.GenericObjectEditor;
-import weka.gui.GenericPropertiesCreator;
+import weka.core.*;
+import weka.core.FeatureStrippedException;
 
 /**
  * Utility routines for the converter package.
@@ -729,87 +723,7 @@ public class ConverterUtils implements Serializable, RevisionHandler {
   }
 
   public static void initialize() {
-    Vector<String> classnames;
-
-    try {
-      // init
-      m_FileLoaders = new Hashtable<String, String>();
-      m_URLFileLoaders = new Hashtable<String, String>();
-      m_FileSavers = new Hashtable<String, String>();
-
-      // generate properties
-      // Note: does NOT work with RMI, hence m_FileLoadersCore/m_FileSaversCore
-
-      Properties props = GenericPropertiesCreator.getGlobalOutputProperties();
-      if (props == null) {
-        GenericPropertiesCreator creator = new GenericPropertiesCreator();
-
-        creator.execute(false);
-        props = creator.getOutputProperties();
-      }
-
-      // loaders
-      m_FileLoaders = getFileConverters(
-        props.getProperty(Loader.class.getName(), CORE_FILE_LOADERS),
-        new String[] { FileSourcedConverter.class.getName() });
-
-      // URL loaders
-      m_URLFileLoaders = getFileConverters(
-        props.getProperty(Loader.class.getName(), CORE_FILE_LOADERS),
-        new String[] { FileSourcedConverter.class.getName(),
-          URLSourcedLoader.class.getName() });
-
-      // savers
-      m_FileSavers = getFileConverters(
-        props.getProperty(Saver.class.getName(), CORE_FILE_SAVERS),
-        new String[] { FileSourcedConverter.class.getName() });
-    } catch (Exception e) {
-      e.printStackTrace();
-      // ignore
-    } finally {
-      // loaders
-      if (m_FileLoaders.size() == 0) {
-        classnames = GenericObjectEditor.getClassnames(AbstractFileLoader.class
-          .getName());
-        if (classnames.size() > 0) {
-          m_FileLoaders = getFileConverters(classnames,
-            new String[] { FileSourcedConverter.class.getName() });
-        } else {
-          m_FileLoaders = getFileConverters(CORE_FILE_LOADERS,
-            new String[] { FileSourcedConverter.class.getName() });
-        }
-      }
-
-      // URL loaders
-      if (m_URLFileLoaders.size() == 0) {
-        classnames = GenericObjectEditor.getClassnames(AbstractFileLoader.class
-          .getName());
-        if (classnames.size() > 0) {
-          m_URLFileLoaders = getFileConverters(classnames,
-            new String[] { FileSourcedConverter.class.getName(),
-              URLSourcedLoader.class.getName() });
-        } else {
-          m_URLFileLoaders = getFileConverters(CORE_FILE_LOADERS,
-            new String[] { FileSourcedConverter.class.getName(),
-              URLSourcedLoader.class.getName() });
-        }
-      }
-
-      // savers
-      if (m_FileSavers.size() == 0) {
-        classnames = GenericObjectEditor.getClassnames(AbstractFileSaver.class
-          .getName());
-        if (classnames.size() > 0) {
-          m_FileSavers = getFileConverters(classnames,
-            new String[] { FileSourcedConverter.class.getName() });
-        } else {
-          m_FileSavers = getFileConverters(CORE_FILE_SAVERS,
-            new String[] { FileSourcedConverter.class.getName() });
-        }
-      }
-    }
-
-    weka.gui.ConverterFileChooser.initDefaultFilters();
+    throw new FeatureStrippedException();
   }
 
   /**

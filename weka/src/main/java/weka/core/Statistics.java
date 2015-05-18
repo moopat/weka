@@ -335,7 +335,7 @@ public class Statistics implements RevisionHandler {
    * HREF="http://people.ne.mediaone.net/moshier/index.html#Cephes">Cephes
    * 2.2</A> Math Library (C).
    * 
-   * @param a the argument to the function.
+   * @param x the argument to the function.
    */
   public static double errorFunction(double x) {
     double y, z;
