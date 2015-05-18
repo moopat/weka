@@ -450,7 +450,6 @@ public class NumericTransform extends Filter implements UnsupervisedFilter,
    *          string will typically come from a user, attributes are indexed
    *          from 1. <br>
    *          eg: first-3,5,6-last
-   * @throws InvalidArgumentException if an invalid range list is supplied
    */
 
   public void setAttributeIndices(String rangeList) {
@@ -464,7 +463,6 @@ public class NumericTransform extends Filter implements UnsupervisedFilter,
    * @param attributes an array containing indexes of attributes to select.
    *          Since the array will typically come from a program, attributes are
    *          indexed from 0.
-   * @throws InvalidArgumentException if an invalid set of ranges is supplied
    */
   public void setAttributeIndicesArray(int[] attributes) {
 

@@ -669,7 +669,6 @@ public class RemoveWithValues extends Filter implements UnsupervisedFilter,
    * 
    * @param rangeList a string representing the list of nominal indices. eg:
    *          first-3,5,6-last
-   * @throws InvalidArgumentException if an invalid range list is supplied
    */
   public void setNominalIndices(String rangeList) {
 
@@ -722,7 +721,6 @@ public class RemoveWithValues extends Filter implements UnsupervisedFilter,
    * 
    * @param values an array containing indexes of values to be used for
    *          selection
-   * @throws InvalidArgumentException if an invalid set of ranges is supplied
    */
   public void setNominalIndicesArr(int[] values) {
 

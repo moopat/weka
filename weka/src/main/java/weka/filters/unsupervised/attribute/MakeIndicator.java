@@ -381,7 +381,6 @@ public class MakeIndicator extends Filter implements UnsupervisedFilter,
    * @param indices an array containing indexes of attributes to select. Since
    *          the array will typically come from a program, attributes are
    *          indexed from 0.
-   * @throws InvalidArgumentException if an invalid set of ranges is supplied
    */
   public void setValueIndicesArray(int[] indices) {
 

@@ -333,7 +333,7 @@ public class MergeNominalValues extends SimpleBatchFilter implements
   /**
    * Sets the significance level.
    * 
-   * @param the significance level as an integer.
+   * @param sF significance level as an integer.
    */
   public void setSignificanceLevel(double sF) {
 

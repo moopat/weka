@@ -39,7 +39,6 @@ import weka.estimators.Estimator;
 import weka.filters.Filter;
 import weka.filters.SimpleBatchFilter;
 import weka.filters.unsupervised.attribute.Remove;
-import weka.gui.ProgrammaticProperty;
 
 /**
  <!-- globalinfo-start -->
@@ -394,7 +393,6 @@ public class ClassConditionalProbabilities extends SimpleBatchFilter {
    *
    * @return the naive Bayes estimator
    */
-  @ProgrammaticProperty
   public NaiveBayes getEstimator() {
     return m_estimator;
   }
@@ -413,7 +411,6 @@ public class ClassConditionalProbabilities extends SimpleBatchFilter {
    *
    * @return
    */
-  @ProgrammaticProperty
   public Remove getRemoveFilter() {
     return m_remove;
   }

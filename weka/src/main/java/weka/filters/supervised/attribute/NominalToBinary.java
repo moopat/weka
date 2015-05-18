@@ -452,7 +452,7 @@ public class NominalToBinary extends Filter implements SupervisedFilter,
    * Convert a single instance over. The converted instance is added to the end
    * of the output queue.
    * 
-   * @param instance the instance to convert
+   * @param inst the instance to convert
    */
   private void convertInstance(Instance inst) {
 

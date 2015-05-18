@@ -326,7 +326,7 @@ public class ReplaceMissingWithUserConstant extends PotentialClassIgnorer
   /**
    * Set the nominal/string replacement value
    * 
-   * @param m_nominalStringConstant the nominal/string constant to use
+   * @param nominalStringConstant the nominal/string constant to use
    */
   public void setNominalStringReplacementValue(String nominalStringConstant) {
     m_nominalStringConstant = nominalStringConstant;

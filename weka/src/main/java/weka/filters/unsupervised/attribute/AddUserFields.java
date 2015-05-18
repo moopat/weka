@@ -471,7 +471,7 @@ public class AddUserFields extends Filter implements OptionHandler,
    * 
    * * <!-- options-end -->
    * 
-   * @param otions the list of options as an array of string
+   * @param options the list of options as an array of string
    * @throws Exception if an option is not supported
    */
   @Override
@@ -549,7 +549,7 @@ public class AddUserFields extends Filter implements OptionHandler,
   /**
    * Set environment varialbes to use
    * 
-   * @param the environment variables to use
+   * @param env environment variables to use
    */
   @Override
   public void setEnvironment(Environment env) {
