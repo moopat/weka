@@ -21,8 +21,6 @@
 
 package weka.experiment;
 
-import java.beans.IntrospectionException;
-import java.beans.PropertyDescriptor;
 import java.io.IOException;
 import java.io.Serializable;
 
@@ -47,9 +45,6 @@ public class PropertyNode implements Serializable, RevisionHandler {
   /** The class of the object with this property */
   public Class<?> parentClass;
 
-  /** Other info about the property */
-  public PropertyDescriptor property;
-
   /**
    * Creates a mostly empty property.
    * 
@@ -57,22 +52,9 @@ public class PropertyNode implements Serializable, RevisionHandler {
    */
   public PropertyNode(Object pValue) {
 
-    this(pValue, null, null);
+      throw new RuntimeException("This feature is not available in weka-android.");
   }
 
-  /**
-   * Creates a fully specified property node.
-   * 
-   * @param pValue the current property value.
-   * @param prop the PropertyDescriptor.
-   * @param pClass the Class of the object with this property.
-   */
-  public PropertyNode(Object pValue, PropertyDescriptor prop, Class<?> pClass) {
-
-    value = pValue;
-    property = prop;
-    parentClass = pClass;
-  }
 
   /**
    * Returns a string description of this property.
@@ -82,10 +64,7 @@ public class PropertyNode implements Serializable, RevisionHandler {
   @Override
   public String toString() {
 
-    if (property == null) {
       return "Available properties";
-    }
-    return property.getDisplayName();
   }
 
   /*
@@ -99,30 +78,11 @@ public class PropertyNode implements Serializable, RevisionHandler {
       throw new IOException("Can't serialize object: " + ex.getMessage());
     }
     out.writeObject(parentClass);
-    out.writeObject(property.getDisplayName());
-    out.writeObject(property.getReadMethod().getName());
-    out.writeObject(property.getWriteMethod().getName());
   }
 
   private void readObject(java.io.ObjectInputStream in) throws IOException,
     ClassNotFoundException {
-
-    value = in.readObject();
-    parentClass = (Class<?>) in.readObject();
-    String name = (String) in.readObject();
-    String getter = (String) in.readObject();
-    String setter = (String) in.readObject();
-    /*
-     * System.err.println("Loading property descriptor:\n" + "\tparentClass: " +
-     * parentClass.getName() + "\tname: " + name + "\tgetter: " + getter +
-     * "\tsetter: " + setter);
-     */
-    try {
-      property = new PropertyDescriptor(name, parentClass, getter, setter);
-    } catch (IntrospectionException ex) {
-      throw new ClassNotFoundException("Couldn't create property descriptor: "
-        + parentClass.getName() + "::" + name);
-    }
+      throw new RuntimeException("This feature is not available in weka-android.");
   }
 
   /**
