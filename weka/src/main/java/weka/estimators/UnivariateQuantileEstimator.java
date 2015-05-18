@@ -41,7 +41,7 @@ public interface UnivariateQuantileEstimator {
   /**
    * Returns the quantile for the given percentage
    *
-   * @param value the value at which to evaluate
+   * @param quantile the value at which to evaluate
    * @return the quantile
    */
   double predictQuantile(double quantile);

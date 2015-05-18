@@ -485,7 +485,7 @@ Serializable {
   /**
    * Sets the number of Bootstrap runs.
    * 
-   * @param mnumBootstrapRuns the number of Bootstrap runs
+   * @param numBootstrapRuns the number of Bootstrap runs
    */
   public void setNumBootstrapRuns(int numBootstrapRuns) {
     m_NumBootstrapRuns = numBootstrapRuns;
@@ -510,7 +510,7 @@ Serializable {
   /**
    * Sets the number of components to use.
    * 
-   * @param m_NumComponents the m_NumComponents to set
+   * @param numComponents the m_NumComponents to set
    */
   public void setNumComponents(int numComponents) {
     this.m_NumComponents = numComponents;

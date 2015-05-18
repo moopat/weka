@@ -68,7 +68,7 @@ public class KernelEstimator extends Estimator implements IncrementalEstimator,
   /**
    * Execute a binary search to locate the nearest data value
    * 
-   * @param the data value to locate
+   * @param key data value to locate
    * @return the index of the nearest data value
    */
   private int findNearestValue(double key) {

@@ -84,7 +84,7 @@ public class MultivariateGaussianEstimator implements MultivariateEstimator,
    * Returns the log likelihood of density value for the Multivariate
    * distribution
    * 
-   * @param input vector
+   * @param valuePassed vector
    * @return log density based on given distribution
    */
   @Override

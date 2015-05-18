@@ -60,7 +60,6 @@ public class MahalanobisEstimator extends Estimator implements IncrementalEstima
    * Returns value for normal kernel
    *
    * @param x the argument to the kernel function
-   * @param variance the variance
    * @return the value for a normal kernel
    */
   private double normalKernel(double x) {
