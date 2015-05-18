@@ -34,11 +34,7 @@ import java.net.URL;
 import java.text.BreakIterator;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.util.Enumeration;
-import java.util.List;
-import java.util.Properties;
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
 
 import weka.Run;
 
@@ -1063,8 +1059,7 @@ public final class Utils implements RevisionHandler {
       return forNameNoSchemeMatch(classType, className, options);
     }
 
-    List<String> matches = Run.findSchemeMatch(classType, className, false,
-      true);
+    List<String> matches = new ArrayList<String>();
     if (matches.size() == 0) {
       throw new Exception("Can't find class called: " + className);
     }

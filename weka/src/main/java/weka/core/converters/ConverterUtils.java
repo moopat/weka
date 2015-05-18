@@ -685,9 +685,7 @@ public class ConverterUtils implements Serializable, RevisionHandler {
     // + weka.core.converters.SVMLightLoader.class.getName() + ","
     + weka.core.converters.SerializedInstancesLoader.class.getName()
     + ","
-    + weka.core.converters.TextDirectoryLoader.class.getName()
-    + ","
-    + weka.core.converters.XRFFLoader.class.getName();
+    + weka.core.converters.TextDirectoryLoader.class.getName();
 
   /**
    * the core savers - hardcoded list necessary for RMI/Remote Experiments
@@ -704,9 +702,7 @@ public class ConverterUtils implements Serializable, RevisionHandler {
     // + weka.core.converters.LibSVMSaver.class.getName() + ","
     // + weka.core.converters.MatlabSaver.class.getName() + ","
     // + weka.core.converters.SVMLightSaver.class.getName() + ","
-    + weka.core.converters.SerializedInstancesSaver.class.getName()
-    + ","
-    + weka.core.converters.XRFFSaver.class.getName();
+    + weka.core.converters.SerializedInstancesSaver.class.getName();
 
   /** all available loaders (extension &lt;-&gt; classname). */
   protected static Hashtable<String, String> m_FileLoaders;

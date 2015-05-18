@@ -25,21 +25,16 @@ import weka.classifiers.*;
 import weka.classifiers.evaluation.output.prediction.AbstractOutput;
 import weka.classifiers.evaluation.output.prediction.PlainText;
 import weka.classifiers.pmml.consumer.PMMLClassifier;
-import weka.classifiers.xml.XMLClassifier;
 import weka.core.*;
 import weka.core.converters.ConverterUtils.DataSink;
 import weka.core.converters.ConverterUtils.DataSource;
 import weka.core.pmml.PMMLFactory;
 import weka.core.pmml.PMMLModel;
-import weka.core.xml.KOML;
-import weka.core.xml.XMLOptions;
-import weka.core.xml.XMLSerialization;
 import weka.estimators.UnivariateKernelEstimator;
 
 import java.io.*;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
 
 /**
  * Class for evaluating machine learning models.
@@ -1098,7 +1093,7 @@ public class Evaluation implements Summarizable, RevisionHandler, Serializable {
       // do we get the input from XML instead of normal parameters?
       xml = Utils.getOption("xml", options);
       if (!xml.equals("")) {
-        options = new XMLOptions(xml).toArray();
+          throw new RuntimeException("This feature is not available in weka-android.");
       }
 
       // is the input model only the XML-Options, i.e. w/o built model?
@@ -1122,18 +1117,7 @@ public class Evaluation implements Summarizable, RevisionHandler, Serializable {
           success = false;
         }
         if (!success) {
-          // load options from serialized data ('-l' is automatically erased!)
-          XMLClassifier xmlserial = new XMLClassifier();
-          OptionHandler cl = (OptionHandler) xmlserial.read(Utils.getOption(
-            'l', options));
-
-          // merge options
-          optionsTmp = new String[options.length + cl.getOptions().length];
-          System.arraycopy(cl.getOptions(), 0, optionsTmp, 0,
-            cl.getOptions().length);
-          System.arraycopy(options, 0, optionsTmp, cl.getOptions().length,
-            options.length);
-          options = optionsTmp;
+            throw new RuntimeException("This feature is not available in weka-android.");
         }
       }
 
@@ -1195,14 +1179,9 @@ public class Evaluation implements Summarizable, RevisionHandler, Serializable {
             if (objectInputFileName.endsWith(".gz")) {
               is = new GZIPInputStream(is);
             }
-            // load from KOML?
-            if (!(objectInputFileName.endsWith(".koml") && KOML.isPresent())) {
-              objectInputStream = new ObjectInputStream(is);
-              xmlInputStream = null;
-            } else {
+
               objectInputStream = null;
               xmlInputStream = new BufferedInputStream(is);
-            }
           }
         }
       } catch (Exception e) {
@@ -1396,11 +1375,7 @@ public class Evaluation implements Summarizable, RevisionHandler, Serializable {
         objectInputStream.close();
         serializedClassifierLoaded = true;
       } else if (xmlInputStream != null) {
-        // whether KOML is available has already been checked (objectInputStream
-        // would null otherwise)!
-        classifier = (Classifier) KOML.read(xmlInputStream);
-        xmlInputStream.close();
-        serializedClassifierLoaded = true;
+          throw new RuntimeException("This feature is not available in weka-android.");
       }
     }
 
@@ -1496,33 +1471,18 @@ public class Evaluation implements Summarizable, RevisionHandler, Serializable {
     if (objectOutputFileName.length() != 0) {
       OutputStream os = new FileOutputStream(objectOutputFileName);
       // binary
-      if (!(objectOutputFileName.endsWith(".xml") || (objectOutputFileName
-        .endsWith(".koml") && KOML.isPresent()))) {
-        if (objectOutputFileName.endsWith(".gz")) {
-          os = new GZIPOutputStream(os);
-        }
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(os);
-        objectOutputStream.writeObject(classifier);
-        if (template != null) {
-          objectOutputStream.writeObject(template);
-        }
-        objectOutputStream.flush();
-        objectOutputStream.close();
-      }
-      // KOML/XML
-      else {
+
         BufferedOutputStream xmlOutputStream = new BufferedOutputStream(os);
         if (objectOutputFileName.endsWith(".xml")) {
-          XMLSerialization xmlSerial = new XMLClassifier();
-          xmlSerial.write(xmlOutputStream, classifier);
+            throw new RuntimeException("This feature is not available in weka-android.");
         } else
         // whether KOML is present has already been checked
         // if not present -> ".koml" is interpreted as binary - see above
         if (objectOutputFileName.endsWith(".koml")) {
-          KOML.write(xmlOutputStream, classifier);
+            throw new RuntimeException("This feature is not available in weka-android.");
         }
         xmlOutputStream.close();
-      }
+
     }
 
     // If classifier is drawable output string describing graph

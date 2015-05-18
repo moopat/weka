@@ -606,8 +606,8 @@
          <include name="**/*.default"/>
        </fileset>
     </copy>
-    <rmic base="${build}/classes"
-       classname="weka.experiment.RemoteEngine"/>
+    <!--<rmic base="${build}/classes"
+       classname="weka.experiment.RemoteEngine"/>-->
     <unzip src="${lib}/java-cup.jar" dest="${build}/classes">
       <patternset>
         <include name="java_cup/runtime/**/*"/>
@@ -770,6 +770,15 @@
      </manifest>
     </jar>
   </target>
+
+    <!-- Put everything in ${build}/classes into the weka.jar file -->
+    <target name="exejarnomain" depends="compile, init_dist"
+            description="Create an executable jar file in ./dist">
+        <copy todir="${build}/classes/weka/gui" file="resources/MacArffOpenFilesHandler.class"/>
+        <jar jarfile="${dist}/weka.jar"
+             basedir="${build}/classes">
+        </jar>
+    </target>
 
   <!-- Put everything in ${build}/classes into the weka.jar file -->
   <target name="exejar-monolithic" depends="compile, init_dist"
