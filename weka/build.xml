@@ -581,7 +581,7 @@
       debug="${debug}"
       includeantruntime="false"
       deprecation="${deprecation}"
-      source="1.6" target="1.6">
+      source="1.7" target="1.7">
 
       <classpath refid="project.class.path" /> 
     </javac>

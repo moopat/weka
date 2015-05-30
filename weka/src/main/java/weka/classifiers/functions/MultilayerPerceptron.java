@@ -164,7 +164,7 @@ public class MultilayerPerceptron extends AbstractClassifier implements
   protected class NeuralEnd extends NeuralConnection {
 
     /** for serialization */
-    static final long serialVersionUID = 7305185603191183338L;
+    private static final long serialVersionUID = 7305185603191183338L;
 
     /**
      * the value that represents the instance value this node represents. For an
